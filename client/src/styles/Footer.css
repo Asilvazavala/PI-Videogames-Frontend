@@ -1,0 +1,8 @@
+.container-footer{
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-bottom: 5px;
+  padding-top: 20px;
+}

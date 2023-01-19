@@ -1,0 +1,30 @@
+.ul-paginated {
+  display: flex;
+  list-style: none;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.li-paginated {
+  padding: 10px;
+  font-size: 25px;
+  margin: 0 5px;
+  cursor: pointer;
+  border-radius: 30%;
+}
+
+.li-paginated-active {
+  border: 2px solid black;
+  border-radius: 30%;
+  margin: 0 10px;
+  background-color: #212d44;
+  font-size: 25px;
+  color: white;
+  padding: 5px;
+}
+
+.li-paginated:hover {
+  border-radius: 30%;
+  font-size: 25px;
+  border: 2px solid black;
+}

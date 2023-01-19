@@ -1,0 +1,93 @@
+.container-createGame{
+  width: 100%;
+  height: 100vh;
+  background-image: url('../images/tloz.jpg');
+  background-size: cover;
+  margin-top: -22px;
+}
+
+.form-container{
+  font-size: 25px;
+  margin-bottom: 15px;
+}
+
+.form-input{
+  width: 250px;
+  height: 15px;
+}
+
+.form-input-rating{
+  width: 50px;
+  height: 15px;
+}
+
+.form-input-description{
+  width: 200px;
+  height: 60px;
+}
+
+.boton-volver{
+  margin: 25px 25px 0 0;  
+  font-size: 30px;
+  background-color: rgb(176, 41, 41);
+  cursor: pointer;
+  border-radius: 12px;
+}
+
+.boton-volver:hover{
+  background: rgb(247, 100, 100);
+  box-shadow: 0 0 10px rgb(247, 100, 100), 0 0 40px rgb(247, 100, 100), 0 0 80px rgb(247, 100, 100);
+}
+
+.boton-crear{
+  font-size: 30px;
+  background-color: rgb(54, 125, 54);
+  cursor: pointer;
+  border-radius: 12px;
+}
+
+.boton-crear:hover{
+  background: rgb(146, 227, 146);
+  box-shadow: 0 0 10px rgb(146, 227, 146), 0 0 40px rgb(146, 227, 146), 0 0 80px rgb(146, 227, 146);
+}
+
+.boton-update{
+  margin: 25px 25px 0 0;  
+  font-size: 30px;
+  background-color: rgb(199, 133, 20);
+  cursor: pointer;
+  border-radius: 12px;
+}
+
+.boton-update:hover{
+  background: rgb(255, 196, 93);
+  box-shadow: 0 0 10px rgb(255, 196, 93), 0 0 40px rgb(255, 196, 93), 0 0 80px rgb(255, 196, 93);
+}
+
+.error {
+  font-size: 15px;
+  color: red;
+}
+
+.active-genres-platforms{
+float: left;
+position: relative;
+margin: 0 10px 0 0;
+font-size: 15px;  
+left: 38%;
+list-style-type: none;
+}
+
+.botonX{
+  color: white;
+  background-color: red;
+  cursor: pointer;
+}
+
+.h4-required{
+  margin: 0px 0 20px 0;
+}
+
+.hide{
+  display: none;
+}

@@ -1,0 +1,24 @@
+.Card-container{
+  font-family: 'Rubik', sans-serif;
+}
+
+.name{
+  color: #212d44;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.genre{
+  color: black;
+  font-size: 15px;
+}
+
+.platform{
+  color: #212d44;
+  font-size: 13px;
+}
+
+.rating{
+  color: black;
+  font-size: 15px;
+}

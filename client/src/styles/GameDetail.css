@@ -1,0 +1,93 @@
+.container-GameDetail{
+  width: 100%;
+  height: 100vh;
+  background-image: url('../images/blade.jpg');
+  background-size: cover;
+  padding-top: 10px;
+}
+
+.card-detail {
+  border: 4px solid #212d44;
+  width: 400px;
+  min-height: 250px;
+  margin: 30px 12px 22px 35%;
+}
+
+.buttons-game-detail {
+  font-size: 30px;
+  cursor: pointer;
+  margin-right: 30px;
+  margin-left: 30px;
+  border-radius: 12px;
+}
+
+.button-return-detail{
+  background-color: rgb(255, 196, 93);
+}
+
+.button-return-detail:hover{
+  background: #da8320;
+  box-shadow: 0 0 10px #da8320, 0 0 40px #da8320, 0 0 80px #da8320;
+}
+
+
+.button-delete-detail{
+  background-color: rgb(247, 100, 100);
+}
+
+.button-delete-detail:hover{
+  background: #bc2e2e;
+  box-shadow: 0 0 10px #bc2e2e, 0 0 40px #bc2e2e, 0 0 80px #bc2e2e;
+}
+
+
+.button-update-detail{
+  background-color: rgb(144, 225, 117);
+}
+
+.button-update-detail:hover{
+  background: #15c012;
+  box-shadow: 0 0 10px #15c012, 0 0 40px #15c012, 0 0 80px #15c012;  
+}
+
+.hide-btn{
+  display: none;
+}
+
+.loader {
+  position: relative;
+  border: 96px solid rgb(0, 0, 0);
+  border-radius: 50%;
+  box-sizing: border-box;
+  animation: eat 1s linear infinite;
+  top: 50%;
+  left: 10%;
+}
+
+.loader::after , .loader::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  transform: translateY(-70%) translateX(80%);
+  background: rgb(0, 0, 0);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  box-sizing: border-box;
+  opacity: 0;
+  animation: move 2s linear infinite;
+}
+
+.loader::before {
+  animation-delay: 1s;
+}
+
+@keyframes eat {
+  0% , 49% { border-right-color: rgb(0, 0, 0) }
+  50% , 100% { border-right-color: #0000 }
+}
+@keyframes move {
+  0% { left: 75px ; opacity: 1}
+  50% { left: 0px; opacity: 1 }
+  52%, 100% { left: -5px; opacity: 0; }
+}

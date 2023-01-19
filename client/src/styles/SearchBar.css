@@ -1,0 +1,94 @@
+.container-bar-nav {
+  background-color: #212d44;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  height: 70px;
+}
+
+.container-input {
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 30%;
+}
+
+.input-search-bar {
+  height: 45px;
+  width: 400px;
+  margin: 9px 9px 0 0;
+  border-radius: 21px;
+  border: 2px solid black;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  background-color: #4b4f63;
+  color: black;   
+}
+
+.input-search-bar::placeholder {
+  color: white;
+}
+
+.input-search-bar:hover {
+  background-color: #676c82;
+}
+
+.a-home {
+  margin: 22px 60px 0 0;
+  width: 80px;
+  height: 30px; 
+  cursor: pointer;
+  font-size: 22px;
+  color: white;
+  font-family: 'Rubik', sans-serif;
+  text-decoration: none;
+}
+
+.a-home:hover, .a-newGame:hover {
+  background-color: white;
+  color: #212d44;
+  border-radius: 21px;
+}
+
+.a-newGame {
+  margin: 22px 0 0 0;
+  width: 120px;
+  height: 30px; 
+  cursor: pointer;
+  font-size: 22px;
+  color: white;
+  font-family: 'Rubik', sans-serif;
+  text-decoration: none;
+}
+
+.h2-bar-nav {
+  width: 150px;
+  margin: 4px 0 0 30px;
+  text-decoration: none;
+  font-size: 25px;
+  font-weight: 700;
+  color: white;
+}
+
+.span-search {
+  cursor: pointer;
+  margin: 0 100px 0 0;
+}
+
+.show-x {
+  display: flex;
+  position: absolute;
+  left: 46.5%;
+  top: 12%;
+  color: rgb(159, 35, 35);
+  font-size: 20px;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.hidden-x {
+  display: none;
+}
+
