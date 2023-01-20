@@ -1,22 +1,29 @@
 import React, { useEffect } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { getGameDetail, deleteGame } from '../actions';
+import { getGameDetail, deleteGame, getGames } from '../actions';
 import '../styles/GameDetail.css';
 
 export const GameDetail = (props) => {
  
   const dispatch = useDispatch();
   const history = useHistory();
-  const gameDetail = useSelector((state) => state.detail)
+  let gameDetail = useSelector((state) => state.detail)
 
   useEffect(() => {
     dispatch(getGameDetail(props.match.params.id));
   },[dispatch]);
  
+  useEffect(() => {
+    dispatch(getGames());
+  },[dispatch])
+
+  
   const handleDelete = () => {
     dispatch(deleteGame(props.match.params.id));
-    alert('Game deleted sucessfully!!')
+    alert('Game deleted sucessfully!!');
+    dispatch(getGames());
+    gameDetail = [];
     history.push('/home');
   };
  
@@ -40,7 +47,9 @@ export const GameDetail = (props) => {
       }
       
       <Link to = '/home'>
-        <button className='buttons-game-detail button-return-detail'>Return</button>
+        <button 
+        className='buttons-game-detail button-return-detail'
+        onClick={gameDetail}>Return</button>
       </Link>
       
         <button 

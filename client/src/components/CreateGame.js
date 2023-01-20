@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {Link, useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { postGame, getGenres, getPlatforms, updateGame } from '../actions';
+import { postGame, getGenres, getPlatforms, updateGame, getGames, getGameDetail } from '../actions';
 import '../styles/CreateGame.css';
 
 const validate = (input) => {
@@ -25,6 +25,7 @@ export const CreateGame = (props) => {
   //Traer el estado del reducer 
   const allGenres = useSelector((state) => state.genres);
   const allPlatforms = useSelector((state) => state.platforms);
+  let gameDetail = useSelector((state) => state.detail);
 
   const dispatch = useDispatch();
   const history = useHistory();
@@ -45,11 +46,39 @@ export const CreateGame = (props) => {
     dispatch(getGenres())
   }, [dispatch]);
 
+  // Ejecuto la action getGenres de ./Actions
+  useEffect(() => {
+    dispatch(getGames())
+  }, [dispatch]);
+
   // Ejecuto la action getPlatforms de ./Actions
   useEffect(() => {
     dispatch(getPlatforms())
   }, [dispatch]);
 
+    // Ejecuto la action getGames de ./Actions
+  useEffect(() => {
+    dispatch(getGameDetail(props.match.params.id));
+  },[dispatch])
+
+  setTimeout(() => {
+    updateInputs();
+  }, "0010")
+
+  const updateInputs = () => {
+    if(gameDetail.length > 0) { 
+      setInput({
+        name: gameDetail[0].name,
+        description: gameDetail[0].createdInDB ? gameDetail[0].description : gameDetail[0].description.map(el => el + (', ')),
+        releaseDate: gameDetail[0].releaseDate,
+        rating: gameDetail[0].rating,
+        image: gameDetail[0].img ? gameDetail[0].img : gameDetail[0].image,
+        genres: !gameDetail[0].createdInDB ? gameDetail[0].genres + ' ' : gameDetail[0].genres.map(el => el.name + (', ')),
+        platforms: gameDetail[0].platforms.map(el => el + (', ')),
+      })
+      gameDetail.length = 0;
+    }  
+  }
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -92,16 +121,6 @@ export const CreateGame = (props) => {
     })
   };
 
-  const handleCheck = (e) => {
-    if (e.target.value === 'update' & e.target.checked && e.target.value === 'create' & e.target.checked) {
-      alert('Select only one action Update/Create')
-    } else if(e.target.value === 'update' && e.target.checked) {
-        setShowButton('update');
-      } else if(e.target.value === 'create' && e.target.checked) {
-          setShowButton('create');
-        }
-  };
-
   const handleSubmitCreate = (e) => {
     if (!input.name || !input.description || !input.rating || !input.genres.length || !input.platforms.length) {
       alert('Complete all * fields please');
@@ -119,6 +138,7 @@ export const CreateGame = (props) => {
               description: '',
               releaseDate: '',
               rating: '',
+              image: '',
               genres: [],
               platforms: [],
             })
@@ -142,10 +162,12 @@ export const CreateGame = (props) => {
               name: '',
               description: '',
               releaseDate: '',
+              image: '',
               rating: '',
               genres: [],
               platforms: [],
             })
+            dispatch(getGames());
             history.push('/home');
           }
   };
@@ -153,8 +175,11 @@ export const CreateGame = (props) => {
 
   return (
     <div className='container-createGame'>
+
       <h1>Create your own game!</h1>
+
       <p className='h4-required'>Required fields (*)</p>
+
       <form className='form-container'>
         <div className='form-container'>
           <label>*Name:</label>
@@ -282,36 +307,20 @@ export const CreateGame = (props) => {
         </div>
         <br></br>
         <br></br>
-        <br></br>
 
-        <div className='form-update form-container'>
-          <label><input
-            type='checkbox'
-            value='update'
-            name='update'
-            onChange={(e) => handleCheck(e)}
-          />Update</label>
-
-          <label><input
-            type='checkbox'
-            value='create'
-            name='create'
-            onChange={(e) => handleCheck(e)}
-          />Create</label>
-        </div>
 
       </form>
       <Link to = '/home'><button className='boton-volver'>Return</button></Link>
       
       <button 
         onClick={handleSubmitUpdate}
-        className = {showButton === 'update' && props.match.params.id ? 'boton-update' : 'hide'}
+        className = {props.match.params.id ? 'boton-update' : 'hide'}
         >Update
       </button>
 
       <button 
         onClick={handleSubmitCreate}
-        className = {showButton === 'create' && !props.match.params.id ? 'boton-crear' : 'hide'}
+        className = {!props.match.params.id ? 'boton-crear' : 'hide'}
         >Create
       </button>
 

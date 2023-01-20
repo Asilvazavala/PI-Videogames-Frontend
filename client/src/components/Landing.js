@@ -15,6 +15,8 @@ export const Landing = () => {
           Let's play!
         </button>      
       </Link>
+
+      <span class="loader-land"></span>
     </div>
   )
 }

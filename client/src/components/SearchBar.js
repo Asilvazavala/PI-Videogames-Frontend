@@ -4,7 +4,7 @@ import ImgSearch from '../images/search-solid.svg'
 import { useDispatch } from 'react-redux';
 import { searchGameName } from '../actions';
 
-export const SearchBar = () => {
+export const SearchBar = ({ searchBarPage }) => {
   
   const dispatch = useDispatch();
 
@@ -25,6 +25,7 @@ export const SearchBar = () => {
       alert('Please type a game...')
       } else {
         dispatch(searchGameName(search));
+        searchBarPage();
     }
   }
 

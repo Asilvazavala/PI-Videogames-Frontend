@@ -20,13 +20,17 @@ export const Home = () => {
   const [orden, setOrden] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
   const [gamesPerPage, setGamesPerPage] = useState(15);
-  
+
   const indexLastGame = currentPage * gamesPerPage;
   const indexFirstGame = indexLastGame - gamesPerPage;
   const currentGames = allGames.slice(indexFirstGame, indexLastGame);
   
   const paginado = (pageNumber) => {
     setCurrentPage(pageNumber);
+  };
+
+  const searchBarPage = () => {
+    setCurrentPage(1);
   };
 
 // Ejecuto la action getGames de ./Actions
@@ -38,6 +42,7 @@ export const Home = () => {
   useEffect(() => {
     dispatch(getGenres())
   }, [dispatch]);
+
   
   const handleLoadGames = (e) => {
     e.preventDefault();
@@ -61,18 +66,20 @@ export const Home = () => {
   const handleFilterGameCreated = (e) => {
     e.preventDefault();
     dispatch(filterGameCreated(e.target.value))
+    setCurrentPage(1);
   };
 
   const handleFilterGameByGenre = (e) => {
     e.preventDefault();
     dispatch(filterGameByGenre(e.target.value))
+    setCurrentPage(1)
   };
 
 
   return (
     <div>
 
-      <SearchBar/>
+      <SearchBar searchBarPage={searchBarPage}/>
 
       <div>
         <span className='order-by'>Order by:</span>
@@ -132,7 +139,7 @@ export const Home = () => {
               id = {el.id}
               key = {el.id}/>
           </li>                      
-        )}) : <span class="loader-home"></span>
+        )}) : <span class="loader-home">Load&nbsp;ng</span>
       } 
       </ul>  
       
