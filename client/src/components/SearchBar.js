@@ -62,9 +62,9 @@ export const SearchBar = ({ searchBarPage }) => {
           </span>
 
           <a className='a-home' href='/'>Home</a>
-          
-          <Link to = {'/newGame/'}>
-            <a className='a-newGame' >New Game</a>
+
+          <Link to = {'/newGame/'} className='a-newGame'>
+            <a className='a-newGame'  href='/newGame/'>New Game</a>
           </Link>
         </div>
       </nav> 
