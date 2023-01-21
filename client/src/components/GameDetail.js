@@ -49,7 +49,7 @@ export const GameDetail = (props) => {
       <Link to = '/home'>
         <button 
         className='buttons-game-detail button-return-detail'
-        >Return</button>
+        onClick={gameDetail}>Return</button>
       </Link>
       
         <button 

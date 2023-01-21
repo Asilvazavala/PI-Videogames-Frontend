@@ -105,7 +105,7 @@ export const deleteGame = (id) => {
 
 export const updateGame = (id, payload) => {
   return async function ()  {
-    const upGame = await axios.put(`https://antoniogames.onrender.com1/videogames/${id}`,payload);
+    const upGame = await axios.put(`https://antoniogames.onrender.com/videogames/${id}`,payload);
     return upGame;
   }
 };
