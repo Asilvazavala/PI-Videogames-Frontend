@@ -18,12 +18,11 @@ export const GameDetail = (props) => {
     dispatch(getGames());
   },[dispatch])
 
-  
   const handleDelete = () => {
     dispatch(deleteGame(props.match.params.id));
+    gameDetail.length = 0;
     alert('Game deleted sucessfully!!');
     dispatch(getGames());
-    gameDetail = [];
     history.push('/home');
   };
  
@@ -49,12 +48,13 @@ export const GameDetail = (props) => {
       <Link to = '/home'>
         <button 
         className='buttons-game-detail button-return-detail'
-        onClick={gameDetail}>Return</button>
+        onClick={() => gameDetail.length = 0}
+        >Return</button>
       </Link>
       
         <button 
           className={props.match.params.id.length > 8 ? 'buttons-game-detail button-delete-detail' : 'hide-btn'}
-          onClick={handleDelete}
+          onClick={() => handleDelete()}
           >Delete
         </button>
 
