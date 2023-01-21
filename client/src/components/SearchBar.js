@@ -3,6 +3,8 @@ import '../styles/SearchBar.css';
 import ImgSearch from '../images/search-solid.svg'
 import { useDispatch } from 'react-redux';
 import { searchGameName } from '../actions';
+import { Link } from 'react-router-dom';
+
 
 export const SearchBar = ({ searchBarPage }) => {
   
@@ -60,7 +62,10 @@ export const SearchBar = ({ searchBarPage }) => {
           </span>
 
           <a className='a-home' href='/'>Home</a>
-          <a className='a-newGame' href='/newGame/'>New Game</a>
+          
+          <Link to = {'/newGame/'}>
+            <a className='a-newGame' >New Game</a>
+          </Link>
         </div>
       </nav> 
     </div>
