@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export const getGames = () => {
   return async (dispatch) => {
-    let json = await axios('http://localhost:3001/videogames');
+    let json = await axios('https://antoniogames.onrender.com/videogames');
     return dispatch({
       type: 'GET_GAMES',
       payload: json.data
@@ -12,7 +12,7 @@ export const getGames = () => {
 
 export const getGenres = () => {
   return async (dispatch) => {
-    let allGenres = await axios.get('http://localhost:3001/genres');
+    let allGenres = await axios.get('https://antoniogames.onrender.com/genres');
     return dispatch({
       type: 'GET_GENRES',
       payload: allGenres.data
@@ -22,7 +22,7 @@ export const getGenres = () => {
 
 export const getPlatforms = () => {
   return async function(dispatch) {
-    let json = await axios.get('http://localhost:3001/platforms');
+    let json = await axios.get('https://antoniogames.onrender.com/platforms');
     
     return dispatch({
       type: 'GET_PLATFORMS',
@@ -62,7 +62,7 @@ export const filterGameByGenre = (payload) => {
 export const searchGameName = (name) => {
   return async function (dispatch) {
     try {
-      let json =  await axios.get('http://localhost:3001/videogames?name=' + name);
+      let json =  await axios.get('https://antoniogames.onrender.com/videogames?name=' + name);
       return dispatch({
       type: 'SEARCH_GAME_NAME',
       payload: json.data
@@ -76,7 +76,7 @@ export const searchGameName = (name) => {
 
 export const postGame = (payload) => {
   return async function ()  {
-    const newGame = await axios.post('http://localhost:3001/videogames',payload);
+    const newGame = await axios.post('https://antoniogames.onrender.com/videogames',payload);
     return newGame;
   }
 };
@@ -84,7 +84,7 @@ export const postGame = (payload) => {
 export const getGameDetail = (id) => {
   return async function(dispatch) {
     try {
-      let json = await axios.get('http://localhost:3001/videogames/' + id);
+      let json = await axios.get('https://antoniogames.onrender.com/videogames/' + id);
       return dispatch ({
         type: 'GET_GAME_DETAIL',
         payload: json.data
@@ -98,14 +98,14 @@ export const getGameDetail = (id) => {
 
 export const deleteGame = (id) => {
   return async function() {
-    const deleteGame = await axios.delete('http://localhost:3001/videogames/' + id);
+    const deleteGame = await axios.delete('https://antoniogames.onrender.com/videogames/' + id);
     return deleteGame;
   }
 };
 
 export const updateGame = (id, payload) => {
   return async function ()  {
-    const upGame = await axios.put(`http://localhost:3001/videogames/${id}`,payload);
+    const upGame = await axios.put(`https://antoniogames.onrender.com1/videogames/${id}`,payload);
     return upGame;
   }
 };
